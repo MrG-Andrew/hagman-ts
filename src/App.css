@@ -1,42 +1,139 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.mainContainer{
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    align-items: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.winningLosingMsg{
+    font-size: 2rem;
+    text-align: center;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.hangmanDrawingContainer{
+    position: relative;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.drawingHorizontalLine{
+    height: 10px;
+    width: 250px;
+    background-color: black;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.drawingVerticalLine{
+    height: 400px;
+    width: 10px;
+    background-color: black;
+    margin-left: 120px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.drawingHangingHorizontalLine{
+    height: 10px;
+    width: 200px;
+    background-color: black;
+    margin-left: 120px;
 }
-
-.card {
-  padding: 2em;
+.drawingAbsoluteLine{
+    height: 50px;
+    width: 10px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
-
-.read-the-docs {
-  color: #888;
+.drawingHead{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 10px solid black;
+    position: absolute;
+    top: 50px;
+    right: -30px;
+}
+.drawingBody{
+    width: 10px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    top: 120px;
+    right: 0;
+}
+.drawingRArm{
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 150px;
+    right: -100px;
+    rotate: -30deg;
+    transform-origin: left bottom;
+}
+.drawingLArm{
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 150px;
+    right: 10px;
+    rotate: 30deg;
+    transform-origin: right bottom;
+}
+.drawingRLeg{
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 210px;
+    right: -90px;
+    rotate: 60deg;
+    transform-origin: left bottom;
+}
+.drawingLLeg{
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 210px;
+    right: 0;
+    rotate: -60deg;
+    transform-origin: right bottom;
+}
+.hangmanWordContainer{
+    display: flex;
+    gap: .25rem;
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+.stretchedContainer{
+    align-self: stretch;
+}
+.lettersStyles{
+    border-bottom: .1em solid black;
+}
+.keyboardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    gap: .5rem;
+}
+.keyboardBtn{
+    width: 100%;
+    border: 3px solid black;
+    background: none;
+    aspect-ratio: 1 /1;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    padding: .5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+.keyboardBtn.active{
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+}
+.keyboardBtn.inactive{
+    opacity: .3;
+}
+.keyboardBtn:hover:not(:disabled),
+.keyboardBtn:focus:not(:disabled){
+    background-color: hsl(200, 100%, 75%);
 }
