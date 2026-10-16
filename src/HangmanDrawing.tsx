@@ -1,3 +1,5 @@
+import type { HangmanDrawingProps } from "./types";
+
 const HEAD = <div className="drawingHead" />;
 const BODY = <div className="drawingBody" />;
 const R_ARM = <div className="drawingRArm" />;
